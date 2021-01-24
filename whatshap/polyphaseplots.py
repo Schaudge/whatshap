@@ -22,6 +22,7 @@ def draw_plots(
     threading,
     haplotypes,
     cut_positions,
+    genotype_list_multi,
     phasable_variant_table,
     plot_clusters,
     plot_threading,
@@ -51,6 +52,7 @@ def draw_plots(
             cut_positions,
             haplotypes,
             phasable_variant_table,
+            genotype_list_multi,
             output + ".threading.pdf",
         )
 
@@ -491,6 +493,7 @@ def draw_genetic_clustering(
         from pylab import savefig
 
         # Detect relevant clusters
+        clustering.sort(key=lambda x: -len(x))
         c_list = list(range(len(clustering)))
         num_c = len(c_list)
 
